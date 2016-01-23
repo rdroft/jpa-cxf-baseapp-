@@ -11,7 +11,7 @@ import javax.ws.rs.core.MediaType;
  * Created by roland on 23/01/2016.
  */
 @Component
-@Path("version")
+@Path("/")
 public class VersionResource {
 
     @GET
