@@ -18,10 +18,22 @@
         <jersy.version>2.22.1</jersy.version>
         <junit.version>4.12</junit.version>
         <hibernate.version>5.0.7.Final</hibernate.version>
-        <cxf.version>2.7.13</cxf.version>
+        <cxf.version>3.1.4</cxf.version>
         <jakson.version>1.9.13</jakson.version>
     </properties>
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-war-plugin</artifactId>
+                    <version>2.6</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
     <dependencyManagement>
+
         <dependencies>
             <dependency>
                 <groupId>org.droft.proto</groupId>
@@ -140,4 +152,5 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
+
 </project>

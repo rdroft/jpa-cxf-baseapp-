@@ -10,6 +10,17 @@
     <modelVersion>4.0.0</modelVersion>
     <packaging>war</packaging>
     <artifactId>app-manager-webapp</artifactId>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <configuration>
+                    <filteringDeploymentDescriptors>true</filteringDeploymentDescriptors>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
     <dependencies>
         <dependency>
             <groupId>org.droft.proto</groupId>
@@ -40,8 +51,12 @@
         <profile>
             <id>jersey-services</id>
             <activation>
-                <activeByDefault>true</activeByDefault>
+                <activeByDefault>false</activeByDefault>
             </activation>
+            <properties>
+                <enable.jercey.end> &lt;!--</enable.jercey.end>
+                <enable.jercey.start> --&gt;</enable.jercey.start>
+            </properties>
             <dependencies>
                 <dependency>
                     <groupId>org.glassfish.jersey.ext</groupId>
@@ -60,6 +75,14 @@
         </profile>
         <profile>
             <id>cxf-services</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <enable.cxf.end> &lt;!--</enable.cxf.end>
+                <enable.cxf.start> --&gt;</enable.cxf.start>
+                <activeSpringProfiles>cxf-services</activeSpringProfiles>
+            </properties>
             <dependencies>
                 <dependency>
                     <groupId>org.apache.cxf</groupId>
